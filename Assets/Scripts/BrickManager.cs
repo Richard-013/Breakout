@@ -41,15 +41,6 @@ public class BrickManager : MonoBehaviour
                 GameObject brick = Instantiate(brickPrefab, new Vector3(currentX, currentY, zPosition), Quaternion.identity);
                 brick.name = brickName;
 
-                /* Manual brick creation
-                GameObject brick = GameObject.CreatePrimitive(PrimitiveType.Cube);
-                brick.name = brickName;
-                brick.transform.localScale = new Vector3(xSize, ySize, zSize);
-                brick.transform.position = new Vector3(currentX, currentY, zPosition);
-                brick.GetComponent<Renderer>().material = brickMaterial;
-                brick.AddComponent<Brick>();
-                */
-
                 // Moves the starting point for the next row of bricks downwards
                 currentX = currentX + (xSize + xGap);
 
