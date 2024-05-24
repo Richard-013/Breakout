@@ -1,0 +1,19 @@
+Breakout Features:
+- Create Ball
+	- Bounces on walls and bricks
+	- Lose a life on bottom edge bounce
+	- Destroy brick on impact
+- Player deflector
+	- Moves side to side but stops at boundaries
+	- Deflects ball
+	- Accelerated movement (?)
+- Create wall of bricks
+	- Create each layer (bonus points on clear)
+	- Each layer has a colour
+- Score tracking
+	- Score in corner of screen
+	- Combo for bricks broken in sequence
+	- Local leaderboard?
+- Main menu
+	- Start game button
+	- Quit button
