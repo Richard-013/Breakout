@@ -376,51 +376,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &998709794
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 998709796}
-  - component: {fileID: 998709795}
-  m_Layer: 0
-  m_Name: PlayerManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &998709795
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 998709794}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f388a45e21995ed43a55d61e0099c761, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  paddlePrefab: {fileID: 8455541942923361721, guid: 203828c4be0581a4a84fca6fb6ad3ca4, type: 3}
---- !u!4 &998709796
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 998709794}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.84254456, y: 6.18256, z: 16.558802}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1160234425
 GameObject:
   m_ObjectHideFlags: 0
@@ -499,12 +454,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aba3078f636dc9f40a19ac996e07dfff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numColumns: 15
-  numRows: 10
   brickPrefab: {fileID: 503631048093315120, guid: b41785117980cf443a10d2384bb5bf91, type: 3}
   ballPrefab: {fileID: 8092861226759612440, guid: fe7c0927807f25d4fae16573d73c572b, type: 3}
   framePrefab: {fileID: 8154225356189129632, guid: 2f6274e27d9e2e5489a363aaf5c4882e, type: 3}
-  totalBricks: 0
 --- !u!4 &1216835116
 Transform:
   m_ObjectHideFlags: 0
@@ -528,4 +480,3 @@ SceneRoots:
   - {fileID: 203844589}
   - {fileID: 1160234427}
   - {fileID: 1216835116}
-  - {fileID: 998709796}

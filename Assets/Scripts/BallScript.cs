@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Ball : MonoBehaviour
+public class BallScript : MonoBehaviour
 {
     public Rigidbody2D ballRigidbody;
 

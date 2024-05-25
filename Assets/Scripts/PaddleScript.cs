@@ -1,12 +1,13 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class Paddle : MonoBehaviour
+public class PaddleScript : MonoBehaviour
 {
     public Rigidbody2D paddleRigidbody;
 
-    private float moveSpeed = 5f;
+    private float moveSpeed = 6.5f;
     private float moveDirection = 0f;
+    private float thrustForce = 1f;
 
     public InputActionReference movementInput;
 
@@ -37,18 +38,42 @@ public class Paddle : MonoBehaviour
 
         // Get the velocity of the ball on impact
         Vector2 collisionVelocity = collision.rigidbody.velocity;
+        Vector2 bounceDirection = new Vector2(0, 0);
 
         if(collisionVelocity[0] > 0)
         {
             // If the ball is moving to the right, bounce to the right
-            Vector2 bounceDirection = new Vector2(5, collisionVelocity[1]);
+            if(collisionVelocity[0] > 5)
+            {
+                bounceDirection[0] = collisionVelocity[0];
+                bounceDirection[1] = collisionVelocity[1];
+            }
+            else
+            {
+                bounceDirection[0] = moveSpeed;
+                bounceDirection[1] = collisionVelocity[1];
+            }
+
             collision.rigidbody.velocity = bounceDirection;
+            collision.rigidbody.AddForce(Vector3.up * thrustForce, ForceMode2D.Impulse);
+            
         }
         else if(collisionVelocity[0] < 0)
         {
             // If the ball is moving to the left, bounce to the left
-            Vector2 bounceDirection = new Vector2(-5, collisionVelocity[1]);
+            if(collisionVelocity[0] < -5)
+            {
+                bounceDirection[0] = collisionVelocity[0];
+                bounceDirection[1] = collisionVelocity[1];
+            }
+            else
+            {
+                bounceDirection[0] = moveSpeed;
+                bounceDirection[1] = collisionVelocity[1];
+            }
+            
             collision.rigidbody.velocity = bounceDirection;
+            collision.rigidbody.AddForce(Vector3.up * thrustForce, ForceMode2D.Impulse);
         }
         else
         {
@@ -57,14 +82,18 @@ public class Paddle : MonoBehaviour
             if (contact.point.x > transform.position.x)
             {
                 // If the ball is hits the right of the paddle, bounce to the right
-                Vector2 bounceDirection = new Vector2(5, collisionVelocity[1]);
+                bounceDirection[0] = moveSpeed;
+                bounceDirection[1] = collisionVelocity[1];
                 collision.rigidbody.velocity = bounceDirection;
+                collision.rigidbody.AddForce(Vector3.up * thrustForce, ForceMode2D.Impulse);
             }
             else if (contact.point.x < transform.position.x)
             {
                 // If the ball is hits the left of the paddle, bounce to the left
-                Vector2 bounceDirection = new Vector2(-5, collisionVelocity[1]);
+                bounceDirection[0] = moveSpeed;
+                bounceDirection[1] = collisionVelocity[1];
                 collision.rigidbody.velocity = bounceDirection;
+                collision.rigidbody.AddForce(Vector3.up * thrustForce, ForceMode2D.Impulse);
             }
         }
     }
