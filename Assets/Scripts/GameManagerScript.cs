@@ -58,6 +58,7 @@ public class GameManagerScript : MonoBehaviour
                 string brickName = "Brick-" + column + "-" + row;
                 GameObject newBrick = Instantiate(brickPrefab, new Vector3(currentX, currentY, zPosition), Quaternion.identity);
                 newBrick.name = brickName;
+                //newBrick.gameManagerScript = GetComponent<GameManagerScript>();
 
                 // Moves the starting point for the next row of bricks downwards
                 currentX = currentX + (xSize + xGap);
@@ -74,5 +75,24 @@ public class GameManagerScript : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void AddToScore(int scoreToAdd)
+    {
+        // Add to the current score total
+        currentScore = currentScore + scoreToAdd;
+        totalBricksDestroyed = totalBricksDestroyed + 1;
+    }
+
+    private void ResetScore()
+    {
+        // Reset the score to 0
+        currentScore = 0;
+    }
+
+    public int GetCurrentScore()
+    {
+        // Returns the current score
+        return currentScore;
     }
 }
