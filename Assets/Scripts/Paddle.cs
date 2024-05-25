@@ -27,6 +27,14 @@ public class Paddle : MonoBehaviour
     {
         // Get the information about the collision
         ContactPoint2D contact = collision.GetContact(0);
+
+        // Check if collision has a valid Rigidbody2D
+        // Avoids trying to apply velocity to walls
+        if(collision.rigidbody == null)
+        {
+            return;
+        }
+
         Vector2 collisionVelocity = collision.rigidbody.velocity;
 
         if(collisionVelocity[0] > 0)
