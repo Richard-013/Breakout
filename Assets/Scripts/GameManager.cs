@@ -1,16 +1,17 @@
 using UnityEngine;
 
-public class BrickManager : MonoBehaviour
+public class GameManager : MonoBehaviour
 {
     [SerializeField] public int numColumns = 15;
     [SerializeField] public int numRows = 10;
-    [SerializeField] public Material brickMaterial;
     [SerializeField] public GameObject brickPrefab;
+    [SerializeField] public GameObject ballPrefab;
+    [SerializeField] public GameObject framePrefab;
 
     // Default brick dimensions
     private float xSize = 2;
     private float ySize = 1;
-    private float zSize = 1;
+    // private float zSize = 1;
 
     // Default brick starting position
     private float xPosition = -14.35f;
@@ -26,6 +27,9 @@ public class BrickManager : MonoBehaviour
 
     void Start()
     {
+        Instantiate(framePrefab, new Vector3(0f, 0f, 0f), Quaternion.identity);
+        Instantiate(ballPrefab, new Vector3(0f, 4f, zPosition), Quaternion.identity);
+
         float currentX = xPosition;
         float currentY = yPosition;
 
