@@ -6,7 +6,7 @@ public class PlayerManager : MonoBehaviour
 
     void Start()
     {
-        Instantiate(paddlePrefab, new Vector3(0f, 2f, -1f), Quaternion.identity);
+        Instantiate(paddlePrefab, new Vector3(0f, 2f, -1.5f), Quaternion.identity);
     }
 
     // Update is called once per frame

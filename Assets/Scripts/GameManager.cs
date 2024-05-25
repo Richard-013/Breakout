@@ -2,8 +2,12 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] public int numColumns = 15;
-    [SerializeField] public int numRows = 10;
+    private int numColumns = 15;
+    private int numRows = 8;
+
+    // Total number of bricks generated
+    private int totalBricks = 0;
+
     [SerializeField] public GameObject brickPrefab;
     [SerializeField] public GameObject ballPrefab;
     [SerializeField] public GameObject framePrefab;
@@ -16,14 +20,11 @@ public class GameManager : MonoBehaviour
     // Default brick starting position
     private float xPosition = -14.35f;
     private float yPosition = 16.75f;
-    private float zPosition = -1f;
+    private float zPosition = -1.5f;
 
     // Default brick gaps
     private float xGap = 0.05f;
     private float yGap = 0.05f;
-
-    // Total number of bricks generated
-    public int totalBricks = 0;
 
     void Start()
     {
