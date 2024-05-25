@@ -457,6 +457,7 @@ MonoBehaviour:
   brickPrefab: {fileID: 503631048093315120, guid: b41785117980cf443a10d2384bb5bf91, type: 3}
   ballPrefab: {fileID: 8092861226759612440, guid: fe7c0927807f25d4fae16573d73c572b, type: 3}
   framePrefab: {fileID: 8154225356189129632, guid: 2f6274e27d9e2e5489a363aaf5c4882e, type: 3}
+  paddlePrefab: {fileID: 8455541942923361721, guid: 203828c4be0581a4a84fca6fb6ad3ca4, type: 3}
 --- !u!4 &1216835116
 Transform:
   m_ObjectHideFlags: 0
