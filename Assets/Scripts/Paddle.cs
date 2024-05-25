@@ -35,6 +35,7 @@ public class Paddle : MonoBehaviour
             return;
         }
 
+        // Get the velocity of the ball on impact
         Vector2 collisionVelocity = collision.rigidbody.velocity;
 
         if(collisionVelocity[0] > 0)

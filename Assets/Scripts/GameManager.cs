@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    // Size of grid to fill with bricks
     private int numColumns = 15;
     private int numRows = 8;
 
@@ -28,9 +29,11 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        // Spawn the frame and the ball
         Instantiate(framePrefab, new Vector3(0f, 0f, 0f), Quaternion.identity);
         Instantiate(ballPrefab, new Vector3(0f, 4f, zPosition), Quaternion.identity);
 
+        // Set the position for the first brick to be placed at
         float currentX = xPosition;
         float currentY = yPosition;
 
