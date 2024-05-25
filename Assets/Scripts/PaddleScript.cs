@@ -5,7 +5,8 @@ public class PaddleScript : MonoBehaviour
 {
     public Rigidbody2D paddleRigidbody;
 
-    private float moveSpeed = 6.5f;
+    private float paddleMoveSpeed = 7f;
+    private float ballDeflectionSpeed = 6f;
     private float moveDirection = 0f;
     private float thrustForce = 1f;
 
@@ -21,7 +22,7 @@ public class PaddleScript : MonoBehaviour
     void FixedUpdate()
     {
         // Apply movement direction to the velocity of the ball
-        paddleRigidbody.velocityX = moveSpeed * moveDirection;
+        paddleRigidbody.velocityX = paddleMoveSpeed * moveDirection;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -50,7 +51,7 @@ public class PaddleScript : MonoBehaviour
             }
             else
             {
-                bounceDirection[0] = moveSpeed;
+                bounceDirection[0] = ballDeflectionSpeed;
                 bounceDirection[1] = collisionVelocity[1];
             }
 
@@ -68,7 +69,7 @@ public class PaddleScript : MonoBehaviour
             }
             else
             {
-                bounceDirection[0] = moveSpeed;
+                bounceDirection[0] = ballDeflectionSpeed;
                 bounceDirection[1] = collisionVelocity[1];
             }
             
@@ -82,7 +83,7 @@ public class PaddleScript : MonoBehaviour
             if (contact.point.x > transform.position.x)
             {
                 // If the ball is hits the right of the paddle, bounce to the right
-                bounceDirection[0] = moveSpeed;
+                bounceDirection[0] = ballDeflectionSpeed;
                 bounceDirection[1] = collisionVelocity[1];
                 collision.rigidbody.velocity = bounceDirection;
                 collision.rigidbody.AddForce(Vector3.up * thrustForce, ForceMode2D.Impulse);
@@ -90,7 +91,7 @@ public class PaddleScript : MonoBehaviour
             else if (contact.point.x < transform.position.x)
             {
                 // If the ball is hits the left of the paddle, bounce to the left
-                bounceDirection[0] = moveSpeed;
+                bounceDirection[0] = ballDeflectionSpeed;
                 bounceDirection[1] = collisionVelocity[1];
                 collision.rigidbody.velocity = bounceDirection;
                 collision.rigidbody.AddForce(Vector3.up * thrustForce, ForceMode2D.Impulse);
