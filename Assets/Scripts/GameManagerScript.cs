@@ -2,28 +2,19 @@ using UnityEngine;
 
 public class GameManagerScript : MonoBehaviour
 {
-    // Size of grid to fill with bricks
-    private int numColumns = 15;
-    private int numRows = 8;
-
-    // Total number of bricks generated
-    private int totalBricks = 0;
-
-    // Count of bricks destroyed
-    private int totalBricksDestroyed = 0;
-
-    // Stores the score for the current game
-    private int currentScore = 0;
-
+    // Prefab properties
     [SerializeField] public GameObject brickPrefab;
     [SerializeField] public GameObject ballPrefab;
     [SerializeField] public GameObject framePrefab;
     [SerializeField] public GameObject paddlePrefab;
 
+    // Size of grid to fill with bricks
+    private int numColumns = 15;
+    private int numRows = 8;
+
     // Default brick dimensions
     private float xSize = 2;
     private float ySize = 1;
-    // private float zSize = 1;
 
     // Default brick starting position
     private float xPosition = -14.35f;
@@ -33,6 +24,13 @@ public class GameManagerScript : MonoBehaviour
     // Default brick gaps
     private float xGap = 0.05f;
     private float yGap = 0.05f;
+
+    // Game Stats
+    private int totalBricks = 0;
+    private int totalBricksDestroyed = 0;
+    private int currentScore = 0;
+    private int lives = 0;
+
 
     void Start()
     {
