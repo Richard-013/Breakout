@@ -3,6 +3,8 @@ using UnityEngine.InputSystem;
 
 public class PaddleScript : MonoBehaviour
 {
+    private const int TARGET_BALL_SPEED = 5;
+
     public Rigidbody2D paddleRigidbody;
 
     private float paddleMoveSpeed = 7f;
@@ -44,7 +46,7 @@ public class PaddleScript : MonoBehaviour
         if(collisionVelocity[0] > 0)
         {
             // If the ball is moving to the right, bounce to the right
-            if(collisionVelocity[0] > 5)
+            if(collisionVelocity[0] > TARGET_BALL_SPEED)
             {
                 bounceDirection[0] = collisionVelocity[0];
                 bounceDirection[1] = collisionVelocity[1];
@@ -62,7 +64,7 @@ public class PaddleScript : MonoBehaviour
         else if(collisionVelocity[0] < 0)
         {
             // If the ball is moving to the left, bounce to the left
-            if(collisionVelocity[0] < -5)
+            if(collisionVelocity[0] < -TARGET_BALL_SPEED)
             {
                 bounceDirection[0] = collisionVelocity[0];
                 bounceDirection[1] = collisionVelocity[1];
