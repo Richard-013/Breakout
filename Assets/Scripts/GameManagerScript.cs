@@ -34,13 +34,27 @@ public class GameManagerScript : MonoBehaviour
 
     void Start()
     {
-        //playerManagerScript = PlayerManager.GetComponent<PlayerManager>();
+        CreateLevel();
+    }
 
+    void Update()
+    {
+        
+    }
+
+    private void CreateLevel()
+    {
         // Spawn the frame, ball, and paddle
         Instantiate(framePrefab, new Vector3(0f, 0f, 0f), Quaternion.identity);
         Instantiate(ballPrefab, new Vector3(0f, 4f, zPosition), Quaternion.identity);
         Instantiate(paddlePrefab, new Vector3(0f, 2f, -1.5f), Quaternion.identity);
 
+        // Create the grid of bricks
+        CreateBrickGrid();
+    }
+
+    private void CreateBrickGrid()
+    {
         // Set the position for the first brick to be placed at
         float currentX = xPosition;
         float currentY = yPosition;
@@ -68,11 +82,6 @@ public class GameManagerScript : MonoBehaviour
             // Moves the starting point for the next row of bricks downwards
             currentY = currentY - (ySize + yGap);
         }
-    }
-
-    void Update()
-    {
-        
     }
 
     public void AddToScore(int scoreToAdd)
