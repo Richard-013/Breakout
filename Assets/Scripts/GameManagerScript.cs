@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class GameManagerScript : MonoBehaviour
 {
+    // Constants
+    private const int MAX_LIVES = 3;
+
     // Prefab properties
     [SerializeField] public GameObject brickPrefab;
     [SerializeField] public GameObject ballPrefab;
@@ -29,7 +32,7 @@ public class GameManagerScript : MonoBehaviour
     private int totalBricks = 0;
     private int totalBricksDestroyed = 0;
     private int currentScore = 0;
-    private int lives = 0;
+    private int currentLives = 0;
 
 
     void Start()
@@ -51,6 +54,9 @@ public class GameManagerScript : MonoBehaviour
 
         // Create the grid of bricks
         CreateBrickGrid();
+
+        // Set starting lives
+        ResetLives();
     }
 
     private void CreateBrickGrid()
@@ -101,5 +107,10 @@ public class GameManagerScript : MonoBehaviour
     {
         // Returns the current score
         return currentScore;
+    }
+
+    private void ResetLives()
+    {
+        currentLives = MAX_LIVES;
     }
 }
